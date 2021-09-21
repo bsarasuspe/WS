@@ -27,7 +27,9 @@
 	    <td><img src="../images/eki.png" width="100px"></td>
 	    <td>
 	    	<p><h3>Eki Mendibil</h3></p>
-	    	<p>asdfadf</p>
+	    	<p>Kaixo! Ni Eki naiz eta Oiartzunen bizi naiz. Irakurtzea, musika entzutea eta bideojokoetan
+	    	 jolastea gustatzen zait. Informatika Ingenieritzako hirugarren mailan nago, Software Ingenieritzako
+	    	 espezialitatean.</p>
 	    </td>
 	  </tr>
 	</table></center>
