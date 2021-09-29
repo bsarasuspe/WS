@@ -9,7 +9,7 @@
   <section class="main" id="s1">
     <div>
       <div class="formularioa">
-            <h3>Formularioa</h3><br>
+            <h3>Galdera sortu</h3><br>
             <form id="formularioa" name="formularioa" action="/action_page.php" onsubmit="return validateForm()">
             <label for="eposta">(*) E-posta:</label><br>
             <input type="text" id="eposta" name="eposta" value="" 
