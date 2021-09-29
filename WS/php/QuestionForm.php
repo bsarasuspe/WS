@@ -2,9 +2,9 @@
 <html>
 <head>
   <?php include '../html/Head.html'?>
-  <!-- <script src="../js/ValidateFieldsQuestionJS.js"></script>-->
+ <script src="../js/ValidateFieldsQuestionJS.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> 
-  <script src="../js/ValidateFieldsQuestionJQ.js"></script>
+  <!--<script src="../js/ValidateFieldsQuestionJQ.js"></script>-->
 </head>
 
 <body>
@@ -12,7 +12,7 @@
   <section class="main" id="s1">
     <div>
       <div class="formularioa">
-          <h3>Formularioa</h3><br>
+          <h3>Galdera sortu</h3><br>
           <form id="galderenF" name="galderenF" action="AddQuestion.php" onsubmit="return validateForm()" method="post">
           <label for="eposta">(*) E-posta:</label><br>
           <input type="text" id="eposta" name="eposta" value="" style="width:300px"><br><br>
