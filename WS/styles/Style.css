@@ -18,6 +18,33 @@ nav span             				{ margin: 0px 10px 0px 0px;
 .formularioa{
 	padding:20px;
 	background-color:#d5d5d5;
-	width:310px;
+	display:inline-block;
 	text-align:left;
+}
+
+.galderakcontainer{
+	padding:20px;
+	background-color:#d5d5d5;
+	width:auto;
+	display:inline-block;
+	text-align:left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #ecebeb;
+}
+
+tr:nth-child(odd) {
+  background-color: #F9F9F9;
 }

@@ -7,10 +7,49 @@
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
     <div>
-	
-	  DBeko galderak taula batean erakusteko PHP kodea <br/>
-      Taulan ez dago irudirik
-	  
+	   
+      <?php $esteka = mysqli_connect ("localhost", "root", "", "ws") or die ("Errorea Dbra konektatzerakoan");
+
+      $result = mysqli_query($esteka,"SELECT id,eposta,galdera,erZ,er01,er02,er03,zailtasuna,gaia FROM questions");
+
+      /*if (!$esteka->query($sql)) {
+       die("Errore bat gertatu da. <p><a href='QuestionForm.php'> Saiatu beste galdera bat gehitzen.</a>");
+      }*/
+
+	  echo"<div class='galderakcontainer'>
+      <h3>Galderak ikusi</h3><br>
+
+      <table style='width:100%''>
+      <tr>
+        <th>id</th>
+        <th>eposta</th>
+        <th>galdera</th>
+        <th>ezuzena</th>
+        <th>eokerra1</th>
+        <th>eokerra2</th>
+        <th>eokerra3</th>
+        <th>zailtasuna</th>
+        <th>gaia</th>
+      </tr>";
+
+      while($row = mysqli_fetch_array($result)){
+      echo"<tr>";
+        echo"<td>". $row['id']. "</td>";
+        echo"<td>". $row['eposta']. "</td>";
+        echo"<td>". $row['galdera']. "</td>";
+        echo"<td>". $row['erZ']. "</td>";
+        echo"<td>". $row['er01']. "</td>";
+        echo"<td>". $row['er02']. "</td>";
+        echo"<td>". $row['er03']. "</td>";
+        echo"<td>". $row['zailtasuna']. "</td>";
+        echo"<td>". $row['gaia']. "</td>";
+      echo"</tr>";
+    }
+    echo"</table>";
+    echo"</div>";
+
+	  mysqli_close($esteka); ?>
+
     </div>
   </section>
   <?php include '../html/Footer.html' ?>
