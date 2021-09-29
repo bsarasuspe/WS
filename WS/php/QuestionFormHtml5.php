@@ -12,9 +12,10 @@
             <h3>Formularioa</h3><br>
             <form id="formularioa" name="formularioa" action="/action_page.php" onsubmit="return validateForm()">
             <label for="eposta">(*) E-posta:</label><br>
-            <input type="text" id="eposta" name="eposta" value="" style="width:300px" required><br><br>
+            <input type="text" id="eposta" name="eposta" value="" 
+            pattern="([a-zA-Z]+[0-9]{3}@ikasle\.ehu\.(eus|es)|[a-zA-Z]*\.*[a-zA-Z]+(@ehu\.(eus|es)))" style="width:300px" required><br><br>
             <label for="galdera">(*) Galdera:</label><br>
-            <input type="text" id="galdera" name="galdera" value="" style="width:300px" required><br><br>
+            <input type="text" id="galdera" name="galdera" value="" minlength="10" style="width:300px" required><br><br>
             <label for="ezuzena">(*) Erantzun zuzena:</label><br>
             <input type="text" id="ezuzena" name="ezuzena" value="" style="width:300px" required><br><br>
             <label for="eokerra1">(*) Erantzun okerra 1:</label><br>
