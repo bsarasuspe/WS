@@ -7,7 +7,9 @@
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
     <div>
-      <?php $esteka = mysqli_connect ("localhost", "T52", "MjP0lBClwyn81", "db_T52") or die ("Errorea Dbra konektatzerakoan");
+      <?php require_once 'DbConfig.php';
+
+      $esteka = mysqli_connect ("$zerbitzaria", "$erabiltzailea", "$gakoa", "$db") or die ("Errorea Dbra konektatzerakoan");
 
       $sql="INSERT INTO questions(eposta, galdera, erZ, er01, er02, er03, zailtasuna, gaia, argazkia) 
       VALUES ('$_POST[eposta]' ,'$_POST[galdera]', '$_POST[ezuzena]', '$_POST[eokerra1]', '$_POST[eokerra2]', '$_POST[eokerra3]', '$_POST[zailtasuna]', '$_POST[gaia]', null)";

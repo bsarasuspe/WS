@@ -8,7 +8,9 @@
   <section class="main" id="s1">
     <div>
 	   
-      <?php $esteka = mysqli_connect ("localhost", "root", "", "ws") or die ("Errorea Dbra konektatzerakoan");
+      <?php require_once 'DbConfig.php';
+
+      $esteka = mysqli_connect ("$zerbitzaria", "$erabiltzailea", "$gakoa", "$db") or die ("Errorea Dbra konektatzerakoan");
 
       $result = mysqli_query($esteka,"SELECT id,eposta,galdera,erZ,er01,er02,er03,zailtasuna,gaia FROM questions");
 

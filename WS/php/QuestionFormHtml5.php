@@ -10,7 +10,7 @@
     <div>
       <div class="formularioa">
             <h3>Galdera sortu</h3><br>
-            <form id="formularioa" name="formularioa" action="/action_page.php" onsubmit="return validateForm()">
+            <form id="formularioa" name="formularioa" action="AddQuestion.php" onsubmit="return validateForm()">
             <label for="eposta">(*) E-posta:</label><br>
             <input type="text" id="eposta" name="eposta" value="" 
             pattern="([a-zA-Z]+[0-9]{3}@ikasle\.ehu\.(eus|es)|[a-zA-Z]*\.*[a-zA-Z]+(@ehu\.(eus|es)))" style="width:300px" required><br><br>
