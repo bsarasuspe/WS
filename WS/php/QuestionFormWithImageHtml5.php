@@ -10,7 +10,7 @@
   	<div>
       <div class="formularioa">
             <h3>Galdera sortu</h3><br>
-            <form id="formularioa" name="formularioa" action="AddQuestion.php" onsubmit="return validateForm()">
+            <form id="formularioa" name="formularioa" action="AddQuestion.php" onsubmit="return validateForm()" method="post">
             <label for="eposta">(*) E-posta:</label><br>
             <input type="text" id="eposta" name="eposta" value="" 
             pattern="([a-zA-Z]+[0-9]{3}@ikasle\.ehu\.(eus|es)|[a-zA-Z]*\.*[a-zA-Z]+(@ehu\.(eus|es)))" style="width:300px;margin-bottom:5px;" required><br>
@@ -33,6 +33,7 @@
             <label for="gaia">(*) Gaia:</label><br>
             <input type="text" id="gaia" name="gaia" value="" style="width:300px;margin-bottom:5px;"><br>
             <label for="gaia">(Hautazkoa) Argazkia:</label><br>
+            <input type="file" name="argazkia" id="argazkia" accept="image/*" onchange="previewFile();"/> <br>
             <button type="submit" style="width:150px;" form="formularioa">Bidali</button>
             <button type="reset" style="width:150px;" form="formularioa">Hustu</button>
           </form>

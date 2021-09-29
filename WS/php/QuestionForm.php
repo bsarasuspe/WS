@@ -31,9 +31,9 @@
             <option value="1">Txikia</option>
             <option value="2">Ertaina</option>
             <option value="3">Handia</option>
-          </select><br><br>
+          </select><br>
           <label for="gaia">(*) Gaia:</label><br>
-          <input type="text" id="gaia" name="gaia" value="" style="width:300px"><br>
+          <input type="text" id="gaia" name="gaia" value="" style="width:300px;margin-bottom:5px;"><br>
           <input type="submit" name="submit" id="submit" value="Bidali" style="width:300px">
         </form>
       </div>
