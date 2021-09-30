@@ -2,17 +2,46 @@
 <html>
 <head>
   <?php include '../html/Head.html'?>
+  <script src="../js/ValidateFieldsQuestionJS.js"></script>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   <!--<script src="../js/ValidateFieldsQuestionJQ.js"></script>-->
+  <script type="text/javascript">
+    function irudiaIkusi(){
+      var preview = document.querySelector('img');
+      var file    = document.querySelector('input[type=file]').files[0];
+      var reader  = new FileReader();
+
+      reader.onloadend = function () {
+        preview.src = reader.result;
+        preview.style.height='100px';
+        preview.style.width='100px';
+      }
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+      else {
+        preview.src = "";
+      }
+    }
+    function irudiaKendu(){
+      var img=document.getElementById('galderarenirudia');
+      img.style.display="none";
+    }
+}
+
+  </script>
 </head>
 
 <body>
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
-  	<div>
+    <div>
+
       <div class="formularioa">
             <h3>Galdera sortu</h3><br>
             <form id="formularioa" name="formularioa" action="AddQuestion.php" onsubmit="return validateForm()" method="post">
             <label for="eposta">(*) E-posta:</label><br>
-            <input type="text" id="eposta" name="eposta" value="" 
+            <input type="text" id="eposta" name="eposta" value=""
             pattern="([a-zA-Z]+[0-9]{3}@ikasle\.ehu\.(eus|es)|[a-zA-Z]*\.*[a-zA-Z]+(@ehu\.(eus|es)))" style="width:300px;margin-bottom:5px;" required><br>
             <label for="galdera">(*) Galdera:</label><br>
             <input type="text" id="galdera" name="galdera" value="" minlength="10" style="width:300px;margin-bottom:5px;" required><br>
@@ -32,12 +61,14 @@
             </select><br>
             <label for="gaia">(*) Gaia:</label><br>
             <input type="text" id="gaia" name="gaia" value="" style="width:300px;margin-bottom:5px;"><br>
-            <label for="gaia">(Hautazkoa) Argazkia:</label><br>
-            <input type="file" name="argazkia" id="argazkia" accept="image/*" onchange="previewFile();"/> <br>
+            <input type="file" name="irudia" id="irudia" accept="image/*" onchange="irudiaIkusi();"/> <br>
+            <img id="galderarenirudia" src="" /></br>
             <button type="submit" style="width:150px;" form="formularioa">Bidali</button>
+            <input type="reset" value="Hustu" id="reset" onclick="ezabatuigotakoirudia();">
             <button type="reset" style="width:150px;" form="formularioa">Hustu</button>
           </form>
         </div>
+
     </div>
   </section>
   <?php include '../html/Footer.html' ?>
