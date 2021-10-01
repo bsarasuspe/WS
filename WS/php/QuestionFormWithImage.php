@@ -39,7 +39,7 @@
 
       <div class="formularioa">
           <h3>Galdera sortu</h3><br>
-          <form id="galderenF" name="galderenF" action="AddQuestion.php" onsubmit="return validateForm()" method="post">
+          <form id="galderenF" name="galderenF" action="AddQuestionWithImage.php" onsubmit="return validateForm()" method="post">
           <label for="eposta">(*) E-posta:</label><br>
           <input type="text" id="eposta" name="eposta" value="" style="width:300px;margin-bottom:5px;"><br>
           <label for="galdera">(*) Galdera:</label><br>
