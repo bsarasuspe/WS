@@ -12,11 +12,7 @@
 
       $esteka = mysqli_connect ("$zerbitzaria", "$erabiltzailea", "$gakoa", "$db") or die ("Errorea Dbra konektatzerakoan");
 
-      $result = mysqli_query($esteka,"SELECT id,eposta,galdera,erZ,er01,er02,er03,zailtasuna,gaia,argazkia FROM questions");
-
-      /*if (!$esteka->query($sql)) {
-       die("Errore bat gertatu da. <p><a href='QuestionForm.php'> Saiatu beste galdera bat gehitzen.</a>");
-      }*/
+      $result = mysqli_query($esteka,"SELECT id,eposta,galdera,erZ,er01,er02,er03,zailtasuna,gaia FROM questions");
 
 	  echo"<div class='galderakcontainer'>
       <h3>Galderak ikusi</h3><br>
@@ -32,7 +28,6 @@
         <th>eokerra3</th>
         <th>zailtasuna</th>
         <th>gaia</th>
-        <th>argazkia</th>
       </tr>";
 
       while($row = mysqli_fetch_array($result)){
@@ -46,7 +41,6 @@
         echo"<td>". $row['er03']. "</td>";
         echo"<td>". $row['zailtasuna']. "</td>";
         echo"<td>". $row['gaia']. "</td>";
-        echo"<td>". $row['argazkia']. "</td>";
       echo"</tr>";
     }
     echo"</table>";

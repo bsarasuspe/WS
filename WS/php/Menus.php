@@ -8,6 +8,6 @@
 <nav class='main' id='n1' role='navigation'>
   <span><a href='Layout.php'>Hasiera</a></span>
   <span><a href='QuestionFormWithImageHtml5.php'>Galdera sortu</a></span>
-  <span><a href='ShowQuestions.php'>Galderak ikusi</a></span>
+  <span><a href='ShowQuestionsWithImage.php'>Galderak ikusi</a></span>
   <span><a href='Credits.php'>Kredituak</a></span>
 </nav>

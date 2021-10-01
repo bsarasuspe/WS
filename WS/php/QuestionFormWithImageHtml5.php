@@ -38,7 +38,7 @@
 
       <div class="formularioa">
             <h3>Galdera sortu</h3><br>
-            <form id="formularioa" name="formularioa" action="AddQuestionWithImage.php" onsubmit="return validateForm()" method="post">
+            <form id="formularioa" name="formularioa" action="AddQuestionWithImage.php" onsubmit="return validateForm()" method="post" enctype="multipart/form-data">
             <label for="eposta">(*) E-posta:</label><br>
             <input type="text" id="eposta" name="eposta" value=""
             pattern="([a-zA-Z]+[0-9]{3}@ikasle\.ehu\.(eus|es)|[a-zA-Z]*\.*[a-zA-Z]+(@ehu\.(eus|es)))" style="width:300px;margin-bottom:5px;" required><br>

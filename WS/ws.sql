@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-09-2021 a las 10:02:53
+-- Tiempo de generación: 01-10-2021 a las 12:40:46
 -- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.3.30
+-- Versión de PHP: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `quiz`
+-- Estructura de tabla para la tabla `questions`
 --
 
-CREATE TABLE `quiz` (
+CREATE TABLE `questions` (
   `id` int(3) NOT NULL,
   `eposta` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `galdera` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
@@ -45,9 +45,9 @@ CREATE TABLE `quiz` (
 --
 
 --
--- Indices de la tabla `quiz`
+-- Indices de la tabla `questions`
 --
-ALTER TABLE `quiz`
+ALTER TABLE `questions`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -55,9 +55,9 @@ ALTER TABLE `quiz`
 --
 
 --
--- AUTO_INCREMENT de la tabla `quiz`
+-- AUTO_INCREMENT de la tabla `questions`
 --
-ALTER TABLE `quiz`
+ALTER TABLE `questions`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 

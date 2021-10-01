@@ -15,7 +15,7 @@
       VALUES ('$_POST[eposta]' ,'$_POST[galdera]', '$_POST[ezuzena]', '$_POST[eokerra1]', '$_POST[eokerra2]', '$_POST[eokerra3]', '$_POST[zailtasuna]', '$_POST[gaia]', null)";
 
       if (!$esteka->query($sql)) {
-       die("Errore bat gertatu da. <p><a href='QuestionForm.php'> Saiatu beste galdera bat gehitzen.</a>");
+       die("Errore bat gertatu da. <p><a href='QuestionFormHtml5.php'> Saiatu beste galdera bat gehitzen.</a>");
       }
      
       echo "Galdera bat gehitu da!";
