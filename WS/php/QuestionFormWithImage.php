@@ -27,7 +27,6 @@
       var img=document.getElementById('galderarenirudia');
       img.style.display="none";
     }
-}
 
   </script>
 </head>
@@ -39,7 +38,7 @@
 
       <div class="formularioa">
           <h3>Galdera sortu</h3><br>
-          <form id="galderenF" name="galderenF" action="AddQuestionWithImage.php" onsubmit="return validateForm()" method="post">
+          <form id="galderenF" name="galderenF" action="AddQuestionWithImage.php" onsubmit="return validateForm()" method="post" enctype="multipart/form-data">
           <label for="eposta">(*) E-posta:</label><br>
           <input type="text" id="eposta" name="eposta" value="" style="width:300px;margin-bottom:5px;"><br>
           <label for="galdera">(*) Galdera:</label><br>
@@ -60,10 +59,11 @@
           </select><br>
           <label for="gaia">(*) Gaia:</label><br>
           <input type="text" id="gaia" name="gaia" value="" style="width:300px;margin-bottom:5px;"><br>
-          <input type="file" name="irudia" id="irudia" accept="image/*" onchange="irudiaIkusi();"/> <br>
-          <img id="galderarenirudia" src="" /></br>
-          <input type="reset" value="Irudia kendu" id="reset" onclick="irudiaKendu();">
-          <input type="submit" name="submit" id="submit" value="Bidali" style="width:300px">
+          <label for="zailtasuna">(Hautazkoa) Argazkia:</label><br>
+          <input type="file" name="irudia" id="irudia" accept="image/*" onchange="irudiaIkusi();"/><br>
+          <img id="galderarenirudia" src=""/></br>
+          <input type="submit" name="submit" id="submit" value="Bidali" style="width:150px;">
+          <input type="reset" value="Hustu" id="reset" onclick="irudiaKendu();" style="width:150px;">
         </form>
       </div>
 
