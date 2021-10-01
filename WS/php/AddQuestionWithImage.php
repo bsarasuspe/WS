@@ -26,7 +26,7 @@
       }
 
       echo "Galdera bat gehitu da!";
-      echo "<p> <a href='ShowQuestions.php'> Galderak ikusi</a>";
+      echo "<p> <a href='ShowQuestionsWithImage.php'> Galderak ikusi</a>";
 
       mysqli_close($esteka); ?>
 
