@@ -33,17 +33,32 @@
      </tr>";
 
      while($row = mysqli_fetch_array($result)){
-     echo"<tr>";
-       echo"<td>". $row['id']. "</td>";
-       echo"<td>". $row['eposta']. "</td>";
-       echo"<td>". $row['galdera']. "</td>";
-       echo"<td>". $row['erZ']. "</td>";
-       echo"<td>". $row['er01']. "</td>";
-       echo"<td>". $row['er02']. "</td>";
-       echo"<td>". $row['er03']. "</td>";
-       echo"<td>". $row['zailtasuna']. "</td>";
-       echo"<td>". $row['gaia']. "</td>";
-       echo '<td><img width="100px" src="data:image/jpeg;base64,'.base64_encode($row['argazkia']).'"/></td>';
+      if($row['argazkia']!=null){
+        echo"<tr>";
+        echo"<td>". $row['id']. "</td>";
+        echo"<td>". $row['eposta']. "</td>";
+        echo"<td>". $row['galdera']. "</td>";
+        echo"<td>". $row['erZ']. "</td>";
+        echo"<td>". $row['er01']. "</td>";
+        echo"<td>". $row['er02']. "</td>";
+        echo"<td>". $row['er03']. "</td>";
+        echo"<td>". $row['zailtasuna']. "</td>";
+        echo"<td>". $row['gaia']. "</td>";
+        echo'<td><img width="100px" src="data:image/jpeg;base64,'.base64_encode($row['argazkia']).'"/></td>';
+      }else{
+        echo"<tr>";
+        echo"<td>". $row['id']. "</td>";
+        echo"<td>". $row['eposta']. "</td>";
+        echo"<td>". $row['galdera']. "</td>";
+        echo"<td>". $row['erZ']. "</td>";
+        echo"<td>". $row['er01']. "</td>";
+        echo"<td>". $row['er02']. "</td>";
+        echo"<td>". $row['er03']. "</td>";
+        echo"<td>". $row['zailtasuna']. "</td>";
+        echo"<td>". $row['gaia']. "</td>";
+        echo'<td>Irudirik ez</td>';
+      }
+ 
 
      echo"</tr>";
    }
