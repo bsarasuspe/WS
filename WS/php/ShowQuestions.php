@@ -17,7 +17,7 @@
 	  echo"<div class='galderakcontainer'>
       <h3>Galderak ikusi</h3><br>
 
-      <table style='width:100%''>
+      <table style='width:1100px''>
       <tr>
         <th>id</th>
         <th>eposta</th>
