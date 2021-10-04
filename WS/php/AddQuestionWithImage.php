@@ -11,8 +11,8 @@
       <?php require_once 'DbConfig.php';
 
       $patternEposta = "/^([a-zA-Z]+[0-9]{3}@ikasle\.ehu\.(eus|es)|[a-zA-Z]*\.*[a-zA-Z]+(@ehu\.(eus|es)))$/";
-      $patternGaldera = "/^.{10}.*$/";
-      $patternEzHutsa = "/^.+$/";
+      $patternGaldera = "/^[^ ]{10}[^ ]*$/";
+      $patternEzHutsa = "/^[^ ]+$/";
       $patternZailtasuna = "/^1|2|3$/";
 
       if (preg_match($patternEposta,"$_POST[eposta]") && preg_match($patternGaldera, "$_POST[galdera]") && 
