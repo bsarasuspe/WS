@@ -34,38 +34,119 @@
 
     <?php require_once 'DbConfig.php';
 
-$patternEposta = "/^([a-zA-Z]+[0-9]{3}@ikasle\.ehu\.(eus|es)|[a-zA-Z]*\.*[a-zA-Z]+(@ehu\.(eus|es)))$/";
-$patternIzena = "/^$/";
-$patternEzHutsa = "/^[^ ]+$/";
+    if(isset($_POST["submit"])) {
 
-if (preg_match($patternEposta,"$_POST[eposta]") && preg_match($patternIzena, "$_POST[izenabizenak]") && 
-preg_match($patternEzHutsa, "$_POST[mota]") && preg_match($patternEzHutsa, "$_POST[pas1]") && 
-preg_match($patternEzHutsa, "$_POST[pas2]") && ("$_POST[pas1]"=="$_POST[pas2]")){
-  
-    $esteka = mysqli_connect ("$zerbitzaria", "$erabiltzailea", "$gakoa", "$db") or die ("Errorea Dbra konektatzerakoan");
+        $patternEposta = "/^([a-zA-Z]+[0-9]{3}@ikasle\.ehu\.(eus|es)|[a-zA-Z]*\.*[a-zA-Z]+(@ehu\.(eus|es)))$/";
+        $patternIzena = "/^$/";
+        $patternEzHutsa = "/^[^ ]+$/";
 
-  if($_FILES['irudia']["tmp_name"] == null){
-    $sql="INSERT INTO users(eposta, izenabizenak, mota, pasahitza, argazkia)
-  VALUES ('$_POST[eposta]' ,'$_POST[izenabizenak]', '$_POST[mota]', '$_POST[pas1]', null)";
-  }else{
-    $irudia = addslashes(file_get_contents($_FILES['irudia']["tmp_name"]));
-    $sql="INSERT INTO users(eposta, izenabizenak, mota, pasahitza, argazkia)
-  VALUES ('$_POST[eposta]' ,'$_POST[izenabizenak]', '$_POST[mota]', '$_POST[pas1]', null)";
-  }
-  
-  if (!$esteka->query($sql)) {
-   die("Errore bat gertatu da. <p><a href='QuestionFormWithImageHtml5.php'> Saiatu beste galdera bat gehitzen.</a>");
-  }
+        $esteka = mysqli_connect ("$zerbitzaria", "$erabiltzailea", "$gakoa", "$db") or die ("Errorea Dbra konektatzerakoan");
 
-  echo "Galdera bat gehitu da!";
-  echo "<p> <a href='ShowQuestionsWithImage.php'> Galderak ikusi</a>";
+        // PHP validation
+        if(preg_match($patternEposta,"$_POST[eposta]") && preg_match($patternIzena, "$_POST[izenabizenak]") && 
+        !empty("$_POST[mota]") && preg_match($patternEzHutsa, "$_POST[mota]") && preg_match($patternEzHutsa, "$_POST[pas1]") && 
+        preg_match($patternEzHutsa, "$_POST[pas2]") && ("$_POST[pas1]"=="$_POST[pas2]")){
 
-  mysqli_close($esteka);
-}else{
-  echo ("Informazioa ez da zuzena.");
-};
+        $eposta = $_POST["eposta"];
+        $izenabizenak = $_POST["izenabizenak"];
+        $mota =  $_POST["mota"];
+        $pas1 = $_POST["pas1"];
+        $pas2 = $_POST["pas2"];
 
-?>
+        $emailCheck = $esteka->query( "SELECT * FROM users WHERE eposta = '{$eposta}' ");
+        //$rowCount = $emailCheck->fetchColumn();
+            
+            // check if user email already exist
+            if($rowCount > 0) {
+              echo 'emaila existitzen da!';
+                $email_exist = '
+                        User with email already exist!
+                ';
+            } else {
+
+            // Password hash
+            $password_hash = password_hash($pas1, PASSWORD_BCRYPT);
+
+            echo "$password_hash";
+
+            $sql = $esteka->query("INSERT INTO users(eposta, izenabizenak, mota, pasahitza, argazkia) 
+            VALUES ('{$eposta}', '{$izenabizenak}', '{$mota}', '{$password_hash}', null");
+            
+                if(!$sql){
+                    die("Errore bat gertatu da!" . mysqli_error($esteka));
+                } else {
+                  echo 'erregistratu da!';
+                    $success_msg = '
+                        Erabiltzailea erregistratu da!
+                ';
+                }
+            }
+        } else {
+            /*if(empty($eposta)){
+                $emptyError1 = '
+                    First name is required.
+                ';
+            }
+            if(empty($izenabizenak)){
+                $emptyError2 = '
+                    Last name is required.
+                ';
+            }
+            if(empty($mota)){
+                $emptyError3 = '
+                    Email is required.
+                ';
+            }
+            if(empty($pas1)){
+                $emptyError4 = '
+                    Mobile number is required.
+                ';
+            }
+            if(empty($pas2)){
+                $emptyError5 = '
+                    Password is required.
+                ';
+            }  */
+            echo 'datuak ez dira egokiak <br>';          
+        }
+    }
+
+
+/*
+    if (isset($POST["eposta"])){
+      $patternEposta = "/^([a-zA-Z]+[0-9]{3}@ikasle\.ehu\.(eus|es)|[a-zA-Z]*\.*[a-zA-Z]+(@ehu\.(eus|es)))$/";
+      $patternIzena = "/^$/";
+      $patternEzHutsa = "/^[^ ]+$/";
+
+      if (preg_match($patternEposta,"$_POST[eposta]") && preg_match($patternIzena, "$_POST[izenabizenak]") && 
+      preg_match($patternEzHutsa, "$_POST[mota]") && preg_match($patternEzHutsa, "$_POST[pas1]") && 
+      preg_match($patternEzHutsa, "$_POST[pas2]") && ("$_POST[pas1]"=="$_POST[pas2]")){
+        
+          //$esteka = mysqli_connect ("$zerbitzaria", "$erabiltzailea", "$gakoa", "$db") or die ("Errorea Dbra konektatzerakoan");
+
+        if($_FILES['irudia']["tmp_name"] == null){
+          $sql="INSERT INTO users(eposta, izenabizenak, mota, pasahitza, argazkia)
+        VALUES ('$_POST[eposta]' ,'$_POST[izenabizenak]', '$_POST[mota]', '$_POST[pas1]', null)";
+        }else{
+          $irudia = addslashes(file_get_contents($_FILES['irudia']["tmp_name"]));
+          $sql="INSERT INTO users(eposta, izenabizenak, mota, pasahitza, argazkia)
+        VALUES ('$_POST[eposta]' ,'$_POST[izenabizenak]', '$_POST[mota]', '$_POST[pas1]', null)";
+        }
+        
+        if (!$esteka->query($sql)) {
+         die("Errore bat gertatu da. <p><a href='QuestionFormWithImageHtml5.php'> Saiatu beste galdera bat gehitzen.</a>");
+        }
+
+        echo "Galdera bat gehitu da!";
+        echo "<p> <a href='ShowQuestionsWithImage.php'> Galderak ikusi</a>";
+
+        mysqli_close($esteka);
+      }else{
+        echo ("Informazioa ez da zuzena.");
+      };
+    }
+*/
+    ?>
 
 <div class="galderakcontainer">
     <h3>Erregistratu</h3><br>
