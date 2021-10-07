@@ -20,6 +20,7 @@ nav span             				{ margin: 0px 10px 0px 0px;
 	padding:20px;
 	background-color:#d5d5d5;
 	display:inline-block;
+	border-radius:5px;
 	text-align:left;
 }
 
@@ -27,6 +28,7 @@ nav span             				{ margin: 0px 10px 0px 0px;
 	padding:20px;
 	background-color:#d5d5d5;
 	width:auto;
+	border-radius:5px;
 	display:inline-block;
 	text-align:left;
 }
@@ -48,4 +50,26 @@ tr:nth-child(even) {
 
 tr:nth-child(odd) {
   background-color: #F9F9F9;
+}
+
+.alert-error{
+	background-color: #f88a8a;
+    padding: 5px;
+    text-align: center;
+    width: 335px;
+    margin: auto;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+}
+
+.alert-success{
+	background-color: #91c88d;
+    padding: 5px;
+    text-align: center;
+    width: 335px;
+    margin: auto;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
 }
