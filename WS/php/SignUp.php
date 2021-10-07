@@ -37,116 +37,73 @@
     if(isset($_POST["submit"])) {
 
         $patternEposta = "/^([a-zA-Z]+[0-9]{3}@ikasle\.ehu\.(eus|es)|[a-zA-Z]*\.*[a-zA-Z]+(@ehu\.(eus|es)))$/";
-        $patternIzena = "/^$/";
-        $patternEzHutsa = "/^[^ ]+$/";
+        $patternIzena = "/^[a-zA-ZÀ-ÿ]{2,}\s[a-zA-ZÀ-ÿ]{2,}(\s[a-zA-ZÀ-ÿ]{2,})*$/";
 
         $esteka = mysqli_connect ("$zerbitzaria", "$erabiltzailea", "$gakoa", "$db") or die ("Errorea Dbra konektatzerakoan");
 
         // PHP validation
-        if(preg_match($patternEposta,"$_POST[eposta]") && preg_match($patternIzena, "$_POST[izenabizenak]") && 
-        !empty("$_POST[mota]") && preg_match($patternEzHutsa, "$_POST[mota]") && preg_match($patternEzHutsa, "$_POST[pas1]") && 
-        preg_match($patternEzHutsa, "$_POST[pas2]") && ("$_POST[pas1]"=="$_POST[pas2]")){
+        if(!empty("$_POST[eposta]")){
+          if(!empty("$_POST[izenabizenak]")){
+            if(!empty("$_POST[mota]")){
+              if(!empty("$_POST[pas1]")){
+                if(!empty("$_POST[pas2]")){
+                  if("$_POST[pas1]"=="$_POST[pas2]"){
+                    if (preg_match($patternEposta,"$_POST[eposta]")){
+                      if (preg_match($patternIzena, "$_POST[izenabizenak]")){
+                        $eposta = $_POST["eposta"];
+                        $izenabizenak = $_POST["izenabizenak"];
+                        $mota =  $_POST["mota"];
+                        $pas1 = $_POST["pas1"];
+                        $pas2 = $_POST["pas2"];
 
-        $eposta = $_POST["eposta"];
-        $izenabizenak = $_POST["izenabizenak"];
-        $mota =  $_POST["mota"];
-        $pas1 = $_POST["pas1"];
-        $pas2 = $_POST["pas2"];
+                        $sqlEmail = "SELECT * FROM users WHERE eposta = '{$eposta}'";
+                        $rs = mysqli_query($esteka ,$sqlEmail);
+                        $rowCount = mysqli_num_rows($rs);
+                                    
+                        // check if user email already exist
+                        if($rowCount > 0) {
+                          echo 'emaila existitzen da!';
+                          $email_exist = 'User with email already exist!';
+                        } else {
+                          // Password hash
+                          $password_hash = password_hash($pas1, PASSWORD_BCRYPT);
 
-        $emailCheck = $esteka->query( "SELECT * FROM users WHERE eposta = '{$eposta}' ");
-        //$rowCount = $emailCheck->fetchColumn();
-            
-            // check if user email already exist
-            if($rowCount > 0) {
-              echo 'emaila existitzen da!';
-                $email_exist = '
-                        User with email already exist!
-                ';
-            } else {
-
-            // Password hash
-            $password_hash = password_hash($pas1, PASSWORD_BCRYPT);
-
-            echo "$password_hash";
-
-            $sql = $esteka->query("INSERT INTO users(eposta, izenabizenak, mota, pasahitza, argazkia) 
-            VALUES ('{$eposta}', '{$izenabizenak}', '{$mota}', '{$password_hash}', null");
-            
-                if(!$sql){
-                    die("Errore bat gertatu da!" . mysqli_error($esteka));
-                } else {
-                  echo 'erregistratu da!';
-                    $success_msg = '
-                        Erabiltzailea erregistratu da!
-                ';
+                          $sql = $esteka->query("INSERT INTO users(eposta, izenabizenak, mota, pasahitza, argazkia) 
+                          VALUES ('$eposta', '$izenabizenak', '$mota', '$password_hash', null");
+                                    
+                          if(!$sql){
+                            die("Errore bat gertatu da! " . mysqli_error($esteka));
+                          } else {
+                            echo 'erregistratu da!';
+                            $success_msg = 'Erabiltzailea erregistratu da!<br>';
+                          }
+                        }
+                      }else{
+                        echo "Izena ez da egokia.<br>";
+                      }
+                    }else{
+                      echo "Eposta ez da egokia.<br>";
+                    }
+                  }else{
+                    echo "Pasahitzak ez dira berdinak.<br>";
+                  }
+                }else{
+                  echo "Pasahitza errepikatzea falta da.<br>";
                 }
+              }else{
+                echo "Pasahitza falta da.<br>"; 
+              }
+            }else{
+              echo "Mota falta da.<br>";
             }
-        } else {
-            /*if(empty($eposta)){
-                $emptyError1 = '
-                    First name is required.
-                ';
-            }
-            if(empty($izenabizenak)){
-                $emptyError2 = '
-                    Last name is required.
-                ';
-            }
-            if(empty($mota)){
-                $emptyError3 = '
-                    Email is required.
-                ';
-            }
-            if(empty($pas1)){
-                $emptyError4 = '
-                    Mobile number is required.
-                ';
-            }
-            if(empty($pas2)){
-                $emptyError5 = '
-                    Password is required.
-                ';
-            }  */
-            echo 'datuak ez dira egokiak <br>';          
-        }
-    }
-
-
-/*
-    if (isset($POST["eposta"])){
-      $patternEposta = "/^([a-zA-Z]+[0-9]{3}@ikasle\.ehu\.(eus|es)|[a-zA-Z]*\.*[a-zA-Z]+(@ehu\.(eus|es)))$/";
-      $patternIzena = "/^$/";
-      $patternEzHutsa = "/^[^ ]+$/";
-
-      if (preg_match($patternEposta,"$_POST[eposta]") && preg_match($patternIzena, "$_POST[izenabizenak]") && 
-      preg_match($patternEzHutsa, "$_POST[mota]") && preg_match($patternEzHutsa, "$_POST[pas1]") && 
-      preg_match($patternEzHutsa, "$_POST[pas2]") && ("$_POST[pas1]"=="$_POST[pas2]")){
-        
-          //$esteka = mysqli_connect ("$zerbitzaria", "$erabiltzailea", "$gakoa", "$db") or die ("Errorea Dbra konektatzerakoan");
-
-        if($_FILES['irudia']["tmp_name"] == null){
-          $sql="INSERT INTO users(eposta, izenabizenak, mota, pasahitza, argazkia)
-        VALUES ('$_POST[eposta]' ,'$_POST[izenabizenak]', '$_POST[mota]', '$_POST[pas1]', null)";
+          }else{
+            echo "Izen abizenak falta dira.<br>";
+          }
         }else{
-          $irudia = addslashes(file_get_contents($_FILES['irudia']["tmp_name"]));
-          $sql="INSERT INTO users(eposta, izenabizenak, mota, pasahitza, argazkia)
-        VALUES ('$_POST[eposta]' ,'$_POST[izenabizenak]', '$_POST[mota]', '$_POST[pas1]', null)";
+          echo "Eposta falta da.<br>";
         }
-        
-        if (!$esteka->query($sql)) {
-         die("Errore bat gertatu da. <p><a href='QuestionFormWithImageHtml5.php'> Saiatu beste galdera bat gehitzen.</a>");
-        }
-
-        echo "Galdera bat gehitu da!";
-        echo "<p> <a href='ShowQuestionsWithImage.php'> Galderak ikusi</a>";
-
-        mysqli_close($esteka);
-      }else{
-        echo ("Informazioa ez da zuzena.");
-      };
     }
-*/
-    ?>
+  ?>
 
 <div class="galderakcontainer">
     <h3>Erregistratu</h3><br>
@@ -158,7 +115,7 @@
           <label for="mota">(*) Erabiltzaile mota:</label><br>
           <input type="radio" id="irakaslea" name="mota" value="irakaslea" style="margin-bottom:5px;">
           <label for="irakaslea">Irakaslea</label><br>
-          <input type="radio" id="ikaslea" name="mota" value="ikaslea" style="margin-bottom:5px;">
+          <input type="radio" id="ikaslea" name="mota" value="ikaslea">
           <label for="ikaslea">Ikaslea</label><br>
           <label for="pas1">(*) Pasahitza:</label><br>
           <input type="password" id="pas1" name="pas1" value="" style="width:300px;margin-bottom:5px;"><br>
@@ -167,7 +124,7 @@
           <label for="irudia">(Hautazkoa) Argazkia:</label><br>
           <input type="file" name="irudia" id="irudia" accept="image/*" onchange="irudiaIkusi();"/><br>
           <img id="userIrudia" src=""/></br>
-          <input type="submit" name="submit" id="submit" value="Bidali" style="width:150px;">
+          <input type="submit" name="submit" id="submit" value="Erregistratu" style="width:150px;">
           <input type="reset" value="Hustu" id="reset" onclick="irudiaKendu();" style="width:150px;">
         </form>
 </div>
