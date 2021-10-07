@@ -9,7 +9,16 @@
     <div class="galderakcontainer">
   	  <h3>Login</h3><br>
 
-  	      <form id="login" name="login" action="Layout.php" onsubmit="return validateForm()" method="post" enctype="multipart/form-data">
+  	  	<?php require_once 'DbConfig.php';
+
+          if (isset($_POST["submit"])){
+            $eposta = $_POST["eposta"];
+            $pasahitza = $_POST["pasahitza"];
+          }
+
+  	  	?>
+  	  	
+  	      <form id="login" name="login" action="Login.php" method="post">
           <label for="eposta">(*) E-posta:</label><br>
           <input type="text" id="eposta" name="eposta" value="" style="width:300px;margin-bottom:5px;"><br>
           <label for="pas1">(*) Pasahitza:</label><br>
