@@ -35,11 +35,11 @@
         }
   
         echo "<div class='alert-success'>Galdera bat gehitu da!</div><br>";
-        echo "<p> <a href='ShowQuestions.php?eposta$eposta'> Galderak ikusi</a>";
+        echo "<p> <a href='ShowQuestions.php?eposta=$eposta'> Galderak ikusi</a>";
   
         mysqli_close($esteka);
       }else{
-        echo ("<div class='alert-error'>Informazioa ez da zuzena.</div>");
+        echo ("<div class='alert-error'>Informazioa ez da zuzena</div>");
       };
 
       ?>
