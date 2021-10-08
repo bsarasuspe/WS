@@ -73,3 +73,21 @@ tr:nth-child(odd) {
     color: white;
     border-radius: 5px;
 }
+
+.profilekoIzena{
+  height:20px;
+  margin-left:10px;
+  font-weight:bold;
+  float:left;
+}
+
+.profilekoIrudia{
+  width: 25px;
+  height: 25px;
+  margin-top: -4px;
+  border-radius: 100px;
+  float: left;
+  overflow: hidden;
+  border: 2px solid #eee;
+  background-color: #bbbbbb;
+}

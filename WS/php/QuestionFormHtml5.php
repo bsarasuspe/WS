@@ -6,8 +6,38 @@
 
 <body>
   <?php include '../php/Menus.php' ?>
+
+    <?php require_once 'DbConfig.php';
+
+if (isset($_GET['eposta'])) {
+  $eposta = $_GET['eposta'];
+}
+
+$konektatua = 0;
+
+if(!empty($eposta)){
+  $esteka = mysqli_connect ("$zerbitzaria", "$erabiltzailea", "$gakoa", "$db") or die ("Errorea Dbra konektatzerakoan");
+
+  $sqli = "SELECT * FROM users WHERE eposta='$eposta'";
+  $result = $esteka->query($sqli);
+  
+  if (!($result)) {
+    echo "<div class='alert-error'>Error in the query</div><br>". $result -> error;
+  }else{
+    $rows_cnt = $result->num_rows;
+    $esteka->close();
+    if ($rows_cnt == 1){
+      $konektatua = 1;
+    }
+  }
+}
+
+?>
   <section class="main" id="s1">
     <div>
+
+  <?php if($konektatua==1){
+  echo '
       <div class="formularioa">
             <h3>Galdera sortu</h3><br>
             <form id="formularioa" name="formularioa" action="AddQuestion.php" onsubmit="return validateForm()" method="post">
@@ -35,7 +65,11 @@
             <button type="submit" style="width:150px;" form="formularioa">Bidali</button>
             <button type="reset" style="width:150px;" form="formularioa">Hustu</button>
           </form>
-        </div>
+        </div>';
+  }else{
+    echo '<div class="alert-error">Orri hau ikusteko erabiltzaile erregistratua izan behar zara.</div>';
+  }
+?>
     </div>
   </section>
   <?php include '../html/Footer.html' ?>

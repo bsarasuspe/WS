@@ -30,7 +30,7 @@ if (isset($_POST["submit"])){
           $rows_cnt=0;
           //$url = "Layout.php?eposta=$eposta&pasahitza=$pasahitza";
           $url = "Layout.php?eposta=$eposta";
-          header("location: $url");
+          header( "refresh:1; url=$url" ); 
     }else{
       echo "<div class='alert-error'>Eposta eta pasahitza ez dira egokiak</div><br>";
     }
