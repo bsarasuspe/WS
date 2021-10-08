@@ -8,10 +8,10 @@
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
     <div>
-	
+	<div class="galderakcontainer" style="width:900px">
       <h2>EGILEAREN/EN DATUAK</h2>
       <br>
-      <p>Eki Mendibil eta Beñat Sarasua gara, Euskal Herriko Unibertsitateko Informatikako ikasleak. <br> Software Ingeniaritza espezialitatea hautatu dugunez, Web Sistema irakasgaian lan hau egitea proposatu zaigu HTML, CSS eta PHP-ko ezagutzak garatzeko.</p>
+      <p>Eki Mendibil eta Beñat Sarasua gara, Euskal Herriko Unibertsitateko Informatikako ikasleak. Software Ingeniaritza espezialitatea hautatu dugunez, Web Sistema irakasgaian lan hau egitea proposatu zaigu HTML, CSS eta PHP-ko ezagutzak garatzeko.</p>
       <br>
 	 <center><table style="width:600px;">
 	  <tr>
@@ -33,7 +33,7 @@
 	    </td>
 	  </tr>
 	</table></center>
-
+</div>
     </div>
   </section>
   <?php include '../html/Footer.html' ?>
