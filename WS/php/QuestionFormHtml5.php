@@ -15,10 +15,9 @@
       <div class="formularioa">
             <h3>Galdera sortu</h3><br>
             <form id="formularioa" name="formularioa" action="AddQuestion.php" onsubmit="return validateForm()" method="post">
-            <label for="eposta">(*) E-posta:</label><br>
-            <input type="text" id="eposta" name="eposta" value="" 
-            pattern="([a-zA-Z]+[0-9]{3}@ikasle\.ehu\.(eus|es)|[a-zA-Z]*\.*[a-zA-Z]+(@ehu\.(eus|es)))" style="width:300px;margin-bottom:5px;" required><br>
-            <label for="galdera">(*) Galdera:</label><br>
+            <label for="eposta">(*) E-posta:</label><br>';
+            echo "<input type='text' id='eposta' name='eposta' value='$eposta' style='width:300px;margin-bottom:5px;' readonly><br>";
+            echo '<label for="galdera">(*) Galdera:</label><br>
             <input type="text" id="galdera" name="galdera" value="" minlength="10" style="width:300px;margin-bottom:5px;" required><br>
             <label for="ezuzena">(*) Erantzun zuzena:</label><br>
             <input type="text" id="ezuzena" name="ezuzena" value="" style="width:300px;margin-bottom:5px;" required><br>

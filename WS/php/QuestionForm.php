@@ -18,9 +18,9 @@
       <div class="formularioa">
           <h3>Galdera sortu</h3><br>';
           echo "<form id='galderenF' name='galderenF' action='AddQuestion.php?eposta=$eposta' onsubmit='return validateForm()' method='post'>";
-          echo'<label for="eposta">(*) E-posta:</label><br>
-          <input type="text" id="eposta" name="eposta" value="" style="width:300px;margin-bottom:5px;"><br>
-          <label for="galdera">(*) Galdera:</label><br>
+          echo'<label for="eposta">(*) E-posta:</label><br>';
+          echo "<input type='text' id='eposta' name='eposta' value='$eposta' style='width:300px;margin-bottom:5px;' readonly><br>";
+          echo '<label for="galdera">(*) Galdera:</label><br>
           <input type="text" id="galdera" name="galdera" value="" style="width:300px;margin-bottom:5px;"><br>
           <label for="ezuzena">(*) Erantzun zuzena:</label><br>
           <input type="text" id="ezuzena" name="ezuzena" value="" style="width:300px;margin-bottom:5px;"><br>
