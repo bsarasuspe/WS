@@ -13,9 +13,9 @@
   <?php if($konektatua==1){
   echo '
       <div class="formularioa">
-            <h3>Galdera sortu</h3><br>
-            <form id="formularioa" name="formularioa" action="AddQuestion.php?eposta=$eposta" onsubmit="return validateForm()" method="post">
-            <label for="eposta">(*) E-posta:</label><br>';
+            <h3>Galdera sortu</h3><br>';
+            echo "<form id="formularioa" name="formularioa" action="AddQuestion.php?eposta=$eposta" onsubmit="return validateForm()" method="post">";
+            echo '<label for="eposta">(*) E-posta:</label><br>';
             echo "<input type='text' id='eposta' name='eposta' value='$eposta' style='width:300px;margin-bottom:5px;' readonly><br>";
             echo '<label for="galdera">(*) Galdera:</label><br>
             <input type="text" id="galdera" name="galdera" value="" minlength="10" style="width:300px;margin-bottom:5px;" required><br>

@@ -39,7 +39,7 @@
   
         mysqli_close($esteka);
       }else{
-        echo ("Informazioa ez da zuzena.");
+        echo ("<div class='alert-error'>Informazioa ez da zuzena.</div>");
       };
 
       ?>
