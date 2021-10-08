@@ -71,11 +71,11 @@
 
                             if($_FILES['irudia']["tmp_name"] == null){
                               $sql = "INSERT INTO users(eposta, izenabizenak, mota, pasahitza, argazkia) 
-                              VALUES ('{$eposta}', '{$izenabizenak}', '{$mota}', '{$password_hash}', null)";
+                              VALUES ('{$eposta}', '{$izenabizenak}', '{$mota}', '{$pas1}', null)";
                             }else{
                               $irudia = addslashes(file_get_contents($_FILES['irudia']["tmp_name"]));
                               $sql = "INSERT INTO users(eposta, izenabizenak, mota, pasahitza, argazkia) 
-                              VALUES ('{$eposta}', '{$izenabizenak}', '{$mota}', '{$password_hash}', '{$irudia}')";
+                              VALUES ('{$eposta}', '{$izenabizenak}', '{$mota}', '{$pas1}', '{$irudia}')";
                             }
                                
                             if(!$esteka->query($sql)){
@@ -86,31 +86,31 @@
                             }
                           }
                         }else{
-                          echo "<div class='alert-error'>Pasahitza motzeegia da.</div><br>";
+                          echo "<div class='alert-error'>Pasahitza motzeegia da</div><br>";
                         }
                       }else{
-                        echo "<div class='alert-error'>Izena ez da egokia.</div><br>";
+                        echo "<div class='alert-error'>Izena ez da egokia</div><br>";
                       }
                     }else{
-                      echo "<div class='alert-error'>Eposta ez da egokia.</div><br>";
+                      echo "<div class='alert-error'>Eposta ez da egokia</div><br>";
                     }
                   }else{
-                    echo "<div class='alert-error'>Pasahitzak ez dira berdinak.</div><br>";
+                    echo "<div class='alert-error'>Pasahitzak ez dira berdinak</div><br>";
                   }
                 }else{
-                  echo "<div class='alert-error'>Pasahitza errepikatzea falta da.</div><br>";
+                  echo "<div class='alert-error'>Pasahitza errepikatzea falta da</div><br>";
                 }
               }else{
-                echo "<div class='alert-error'>Pasahitza falta da.</div><br>"; 
+                echo "<div class='alert-error'>Pasahitza falta da</div><br>"; 
               }
             }else{
-              echo "<div class='alert-error'>Mota falta da.</div><br>";
+              echo "<div class='alert-error'>Mota falta da</div><br>";
             }
           }else{
-            echo "<div class='alert-error'>Izen abizenak falta dira.</div><br>";
+            echo "<div class='alert-error'>Izen abizenak falta dira</div><br>";
           }
         }else{
-          echo "<div class='alert-error'>Eposta falta da.</div><br>";
+          echo "<div class='alert-error'>Eposta falta da</div><br>";
         }
     }
   ?>
