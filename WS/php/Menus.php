@@ -54,6 +54,8 @@ if(!empty($eposta)){
       echo "<span><a href='Layout.php?eposta=$eposta'>Hasiera</a></span>
       <span><a href='QuestionFormWithImageHtml5.php?eposta=$eposta'>Galdera sortu</a></span>
       <span><a href='ShowQuestionsWithImage.php?eposta=$eposta'>Galderak ikusi</a></span>
+      <span><a href='ShowXmlQuestions.php?eposta=$eposta'>Galderak ikusi (XML)</a></span>
+      <span><a href='ShowJsonQuestions.php?eposta=$eposta'>Galderak ikusi (JSON)</a></span>
       <span><a href='Credits.php?eposta=$eposta'>Kredituak</a></span>";
     }else{
       echo "<span><a href='Layout.php'>Hasiera</a></span>
