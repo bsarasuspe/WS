@@ -50,7 +50,7 @@
                   if("$_POST[pas1]"=="$_POST[pas2]"){
                     if (preg_match($patternEposta,"$_POST[eposta]")){
                       if (preg_match($patternIzena, "$_POST[izenabizenak]")){
-                        if (strlen("$_POST[pas1]") > 8){
+                        if (strlen("$_POST[pas1]") > 7){
                           $eposta = $_POST["eposta"];
                           $izenabizenak = $_POST["izenabizenak"];
                           $mota =  $_POST["mota"];
@@ -86,7 +86,7 @@
                             }
                           }
                         }else{
-                          echo "<div class='alert-error'>Pasahitza motzeegia da</div><br>";
+                          echo "<div class='alert-error'>Pasahitza motzegia da</div><br>";
                         }
                       }else{
                         echo "<div class='alert-error'>Izena ez da egokia</div><br>";
