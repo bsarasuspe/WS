@@ -1,34 +1,15 @@
 $(document).ready(function() {
-    $('#button').click(function() {
-        $('#telefonoa').val("a");
-        $('#izena').val("b");
-        $('#abizena').val("c");
+    $('#button').click(function() { 
         $.get('../xml/Users.xml', function(datuak){
-            var epostenZer = $(datuak).find('eposta');
+            var erabiltzaileZer = $(datuak).find('erabiltzailea');
             var eposta = $('#eposta').val();
-            for (var i = 0; i < epostenZer.length; i++){
-                if(epostenZer[i].childNodes[0].nodeValue == $eposta){
-                    $('#telefonoa').val("a");
-                    $('#izena').val("a");
-                    $('#abizena').val("a");
+            for (var i = 0; i < erabiltzaileZer.length; i++){
+                if(erabiltzaileZer[i].getElementsByTagName("eposta")[0].childNodes[0].nodeValue == eposta){
+                    $('#telefonoa').val(erabiltzaileZer[i].getElementsByTagName("telefonoa")[0].childNodes[0].nodeValue);
+                    $('#izena').val(erabiltzaileZer[i].getElementsByTagName("izena")[0].childNodes[0].nodeValue);
+                    $('#abizena').val(erabiltzaileZer[i].getElementsByTagName("abizena1")[0].childNodes[0].nodeValue + " " + erabiltzaileZer[i].getElementsByTagName("abizena2")[0].childNodes[0].nodeValue);
                 }
             }
         })
     });
 });
-/*
-$(document).ready(function() {
-    $.get('../xml/Users.xml', function(datuak){
-        var epostenZer = $(datuak).find('eposta');
-        var eposta = $('#eposta').val();
-        for (var i = 0; i < epostenZer.length; i++){
-            if(epostenZer[i].childNodes[0].nodeValue == $eposta){
-                $('#telefonoa').val("a");
-                $('#izena').val("a");
-                $('#abizena').val("a");
-            }
-        }
-    })
-});
-
-*/
