@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('#button').click(function() { 
-        $.get('../xml/Users.xml', function(datuak){
+        $.get('../json/Users.xml', function(datuak){
             var erabiltzaileZer = $(datuak).find('erabiltzailea');
             var eposta = $('#eposta').val();
             var aurkituta = false;
