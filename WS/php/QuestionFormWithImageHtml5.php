@@ -40,7 +40,7 @@
   echo '
       <div class="formularioa">
             <h3>Galdera sortu</h3><br>';
-            echo "<form id='formularioa' name='formularioa' action='AddQuestionWithImage.php?eposta=$eposta' onsubmit='return validateForm()'' method='post' enctype='multipart/form-data'>";
+            echo "<form id='formularioa' name='formularioa' action='AddQuestionWithImage.php?eposta=$eposta' onsubmit='return validateForm()' method='post' enctype='multipart/form-data'>";
             echo '<label for="eposta">(*) E-posta:</label><br>';
             echo "<input type='text' id='eposta' name='eposta' value='$eposta' style='width:300px;margin-bottom:5px;' readonly><br>";
             echo '<label for="galdera">(*) Galdera:</label><br>
