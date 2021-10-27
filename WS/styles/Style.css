@@ -74,6 +74,17 @@ tr:nth-child(odd) {
     border-radius: 5px;
 }
 
+.alert-grisa{
+    background-color: #d5d5d5;
+    padding: 5px;
+    text-align: center;
+    width: 335px;
+    margin: auto;
+    font-weight: bold;
+    color: black;
+    border-radius: 5px;
+}
+
 .profilekoIzena{
   height:20px;
   margin-left:10px;

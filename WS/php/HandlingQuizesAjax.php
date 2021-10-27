@@ -70,7 +70,9 @@
             <button type="reset" style="width:150px;" form="formularioa" onclick="irudiaKendu();">Hustu</button><br>
             <button type="button" style="width:303px; margin-top:5px;" form="formularioa" onclick="ShowQuestionsAjax()">Ikusi JSON galderak</button>
           </form>
-        </div>';
+        </div>
+        <div style="margin:10px;"</div>
+        <div id="mezua" class="alert-grisa">Feedbacka</div>';
   }else{
     echo '<div class="alert-error">Orri hau ikusteko erabiltzaile erregistratua izan behar zara.</div>';
   }
