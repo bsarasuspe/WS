@@ -15,7 +15,7 @@
         $array=json_decode($data);
 
         echo"<div class='galderakcontainer'>
-            <h3>Galderak ikusi (XML)</h3><br>
+            <h3>Galderak ikusi (JSON)</h3><br>
 
             <table style='width:1100px''>
             <tr>
